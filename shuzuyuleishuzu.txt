@@ -1,0 +1,150 @@
+类数组
+var str = 'zhangmeng';
+indexOf(meedle,index)用于查找字符串，第一个参数是要查找的字符串，第二个参数可选，用于指定从那个开始查找，找到了返回找到字符的位置，未找到返回-1；
+对应的 lastIndexOf()从后往前查找；
+
+str.inclubes()用来查找指定的字符串，找到返回true，否则返回false;
+例str.include(men)   true
+  str.include(men1)  flase
+
+str.startWith() 判断查找的字符串是否在开头位置 是true 否fasle
+str.endWith() 判断查找的字符串是否在结束位置 是true 否fasle
+
+var str.slice(start,end)用来截取字符串，接受两个参数起始位与结束位+1，返回的结果包含起始位，不包含结束位
+如果 start > end 返回 “”;如果start<0或者end<0，加length，如果还小于0，start默认为0，end默认为length
+
+str.substr(start,num)用来接触字符串，第一个是从哪开始截取，第二个截取多少，num<0,默认为0，start同slice
+
+str.substring(start,end),start， end<0,默认为0，如果start<end,两者交换位置。end是结束位+1
+
+slice substring substr 的差别
+slice可以接受负数，表示从尾部开始计数
+substring 负数都为0
+如果只知道位置，用slice或substring，知道长度用substr
+
+str.split(separator,[limitI])用来分割字符串，且会把字符串变为数组，
+第一个表示用什么来分割，第二个表示取分割后的前几位（可选）
+str.split（‘’，2）//['z','h']
+
+str.toUpperCase()   str.lowerCase()
+把数组切换成大写    把数组切换成小写
+
+str.charCodeAt(position) 用来返回对应字符Unicpde编码
+Var str = '12345'
+48<str.charCodeAt(i)<57
+
+replace(value,newvalue)用来查找指定内容，并替换为新的
+var str1 = str.replace('g','gmeng');
+str1 = 'zhangmengmeng'
+str.repeat(3)不能为负，为负会报错  //'zhangmengzhangmengzhangmeng'
+
+
+tirm()用来去掉字符串的前后空格
+
+这些字符串的功能不会改变元字符串
+
+数组
+数组的length不仅可读，还可以设置，类数组不行 Array.isArray 用来判断是否为数组true false
+
+数组的三种生成方法
+var arr = [];
+var arr = new Array() 写一个表示length
+var arr = Array.of()
+
+arr.indexof(元素，开始位置) 找到是第几位就是返回第几位，没找到返回-1
+
+arr.push(1,2,3) 往数组的后面加东西，可以写无数个，返回值是length   //改变原数组
+arr.pop()删除数组的最后一位，返回值为删除的数组；（）里面写什么都没用   //改变原数组
+arr.unshift(),往数组的第一位加东西，同push
+arr.shift(),删除数组的第一位，同pop
+
+arr.slice(开始值，结束值加一)，用来截取数组，不改变原数组,小于零，加个length，还小于零，当0用
+var arr = [1,2,3,4]
+var arr1 = []
+arr1 = arr.slice(0,2)
+arr1 = [1,2]
+arr = [1,2,3,4]
+
+arr.splice(开始值，几个，替换的数组)用于数组的删除和替换，改变原数组
+var arr = [1,2,"sb"]
+arr.splice(0,2)
+arr = [sb]
+var arr = [1,2,sb]
+arr.splice(0,2,"zcc")
+arr = ["zcc","sb"]
+
+Array.from 用于把类数组换成数组
+var str = "123"
+Array.from(str)
+["1","2","3"]  不是数字，是字符串
+
+Array.reverse() 翻转数组
+var arr = [1,2,3,4,5]
+arr.reverse() [5,4,3,2,1]
+arr = [5,4,3,2,1]
+改变了原数组
+
+arr.forEach(fn)
+用于便利数组中的每一项，可代替循环
+arr.forEach(function(item,i,arr){})
+每一项 每一项对应的i 数组本身
+
+arr.map 同arr.forEach
+但是arr.map有返回值
+
+arr.fill(context,[开始，结束])，用来替换数组，第一个替换的内容，第二个从哪开始，结束
+var arr = [1,2,3]
+arr.fill("a")
+arr = ["a","a","a"]
+arr.fill(1,[1,2])
+arr = ["a",1,"a"]
+
+arr.join()把数组替换成字符串
+var arr = [1,2,3]
+arr.join() "1,2,3"
+arr.join('') "123"
+
+arr.sort() 数组的排序 如果不传参数，默认按照数组的asc码排序
+var arr = [1,2,3]
+arr.sort(function(a,b){
+	return a-b                看返回值。正就a，b交换位置（比较时当做a<b）
+
+arr.sort(function(a,b){
+	return b-a                看返回值。正就a，b交换位置
+});  从大到小
+
+
+数组于数组的拼接
+arr1.concat(arr2,arr3);
+
+清元素样式
+body,p,h1,dl,dd,form {
+	margin: 0;
+}
+ul,ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+img {
+	border； none;
+	vertical-align: top;
+}
+input,textarea {
+	margin: 0;
+	padding: 0;
+	outline: none;   (元素轮廓，不同于边框)
+}
+textarea {
+	overflow: auto;
+	resize: none;    (用户无法调整元素属性)
+}
+table {
+	border-collapse: collapse;
+}
+th,td {
+	padding: 0;
+}
